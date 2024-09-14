@@ -17,7 +17,8 @@
 .container-slider {
     width: 600px;
     display: flex;
-    /* overflow: hidden; */
+    overflow: hidden;
+    position: relative;
 }
 
 .slide {
@@ -59,32 +60,27 @@
     border-radius: 50%;
 }
 
-@keyframes slide-first {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-600px);
-    }
+.label-container {
+    display: flex;
 }
 
-#radio1:checked + .label span{
-    background-color: rgb(4, 7, 34);
+#radio1:checked ~ .label-container .label .label-phone1{
+    background-color: transparent;
     border: 3px solid aquamarine;
 }
 
-#radio2:checked + .label span{
-    background-color: rgb(4, 7, 34);
+#radio2:checked ~ .label-container .label .label-phone2{
+    background-color: transparent;
     border: 3px solid aquamarine;
 }
 
-#radio3:checked + .label span{
-    background-color: rgb(4, 7, 34);
+#radio3:checked ~ .label-container .label .label-phone3{
+    background-color: transparent;
     border: 3px solid aquamarine;
 }
 
-#radio4:checked + .label span{
-    background-color: rgb(4, 7, 34);
+#radio4:checked ~ .label-container .label .label-phone4{
+    background-color: transparent;
     border: 3px solid aquamarine;
 }
 
@@ -92,22 +88,63 @@
     background-color: white;
 }
 
-#radio1:checked + .label:hover span{
+#radio1:checked ~ .label-container .label:hover .label-phone1{
     background-color: rgb(4, 7, 34);
     border-color: white;
 }
 
-#radio2:checked + .label:hover span{
+#radio2:checked ~ .label-container .label:hover .label-phone2{
     background-color: rgb(4, 7, 34);
     border-color: white;
 }
 
-#radio3:checked + .label:hover span{
+#radio3:checked ~ .label-container .label:hover .label-phone3{
     background-color: rgb(4, 7, 34);
     border-color: white;
 }
 
-#radio4:checked + .label:hover span{
+#radio4:checked ~ .label-container .label:hover .label-phone4{
     background-color: rgb(4, 7, 34);
     border-color: white;
 }
+
+#radio1:checked ~ ul li {
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio2:checked ~ ul li{
+    transform: translateX(-640px);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio3:checked ~ ul li{
+    transform: translateX(-1240px);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio4:checked ~ ul li{
+    transform: translateX(-1840px);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+@keyframes slide-first {
+    from {
+        transform: translateX(600px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-second {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(600px);
+    }
+}
+
