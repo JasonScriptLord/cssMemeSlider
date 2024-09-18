@@ -7,10 +7,10 @@
     width: 100vw;
     height: 100vh;
     background-color: rgb(4, 7, 34);
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 60vw 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    overflow: hidden;
 }
 
 .container-slider {
@@ -19,7 +19,11 @@
     list-style-type: none;
     overflow: hidden;
     border-radius: 0.5vw;
+    grid-column-start: 2;
+    grid-row-start: 2;
 }
+
+
 
 .slide-img {
     width: 60vw;
@@ -34,11 +38,16 @@
     display: flex;
 }
 
-.slide-text {
+.slide-text1,
+.slide-text2,
+.slide-text3,
+.slide-text4 {
     color: white;
     padding-left: 1rem;
     margin-top: 1em;
     font-size: clamp(1em, 1vw, 2em);
+    flex-shrink: 0;
+    height: 1em;
 }
 
 .label {
@@ -66,11 +75,25 @@
 }
 
 .label-container {
-    width: 100%;
     display: flex;
     gap: 1em;
     justify-content: end;
-    padding: 0 20vw 0 20vw;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    align-self: flex-start;
+    margin-top: 0.1em;
+}
+
+
+.text-container {
+    width: 50%;
+    height: 3em;
+    overflow: hidden;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30vw;
 }
 
 #radio1:checked ~ .label-container .label .label-phone1{
@@ -78,19 +101,101 @@
     border: 0.2vw solid aquamarine;
 }
 
+#radio1:checked ~ .text-container .slide-text1 {
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio1:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(40vw - 70%));
+    transition: transform 0.5s ease-in-out;
+
+}
+
+#radio1:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-30vw - 30%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio1:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
 #radio2:checked ~ .label-container .label .label-phone2{
     background-color: transparent;
     border: 0.2vw solid aquamarine;
 }
+
+#radio2:checked ~ .text-container .slide-text1 {
+    transform: translateX(-40vw);
+    transition: all 0.5s ease-in-out;
+}
+
+
+#radio2:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-30vw - 40%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
 
 #radio3:checked ~ .label-container .label .label-phone3{
     background-color: transparent;
     border: 0.2vw solid aquamarine;
 }
 
+#radio3:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text1 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
 #radio4:checked ~ .label-container .label .label-phone4{
     background-color: transparent;
     border: 0.2vw solid aquamarine;
+}
+
+#radio4:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-90vw - 650%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text1 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-90vw - 240%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
 }
 
 .label:hover span {
@@ -132,167 +237,95 @@
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-#radio1:checked ~ ul li {
+#radio1:checked ~ .container-slider .slide-block {
     transform: translateX(0);
     transition: all 0.5s ease-in-out;
 }
 
-#radio2:checked ~ ul li{
+#radio2:checked ~ .container-slider .slide-block {
     transform: translateX(-60vw);
     transition: all 0.5s ease-in-out;
 }
 
-#radio3:checked ~ ul li{
+#radio2:checked ~ .slide-text2 {
+    transform: translateX(-60vw);
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .container-slider .slide-block{
     transform: translateX(-120vw);
     transition: all 0.5s ease-in-out;
 }
 
-#radio4:checked ~ ul li{
+#radio4:checked ~ .container-slider .slide-block{
     transform: translateX(-180vw);
     transition: all 0.5s ease-in-out;
 }
 
 
 
-@media (max-width: 1280px) {
-    .container-slider {
-        width: 70vw;
-    }
-
-    .slide-img {
-        width: 70vw;
-    }
-
-    #radio2:checked ~ ul li{
-        transform: translateX(-70vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio3:checked ~ ul li{
-        transform: translateX(-140vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio4:checked ~ ul li{
-        transform: translateX(-210vw);
-        transition: all 0.5s ease-in-out;
-    }
-
-    .label-container {
-        padding: 0 15vw 0 15vw;
-    }
-}
-
-@media (max-width: 1000px) {
-    .container-slider {
-        width: 80vw;
-    }
-
-    .slide-img {
-        width: 80vw;
-    }
-
-    #radio2:checked ~ ul li{
-        transform: translateX(-80vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio3:checked ~ ul li{
-        transform: translateX(-160vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio4:checked ~ ul li{
-        transform: translateX(-240vw);
-        transition: all 0.5s ease-in-out;
-    }
-
-    .label-container {
-        padding: 0 10vw 0 10vw;
-    }
-
-    .label {
-        width: 3.5vw;
-        height: 3.5vw;
-    }
-
-    .label span {
-        width: 2.5vw;
-        height: 2.5vw;
-    }
-}
-
 @media (max-width: 767px) {
-    .container-slider {
-        width: 80vw;
-    }
-
-    .slide-img {
-        width: 80vw;
-    }
-
-    #radio2:checked ~ ul li{
-        transform: translateX(-80vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio3:checked ~ ul li{
-        transform: translateX(-160vw);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    #radio4:checked ~ ul li{
-        transform: translateX(-240vw);
-        transition: all 0.5s ease-in-out;
+    .slide-text1,
+    .slide-text2,
+    .slide-text3,
+    .slide-text4 {
+        font-size: 0.8em;
     }
 
     .label-container {
+        margin-top: 0.8em;
         justify-content: center;
     }
 
-    .label {
-        width: 4vw;
-        height: 4vw;
+    .container {
+        grid-template-columns: 1fr 80vw 1fr;
     }
 
-    .label span {
-        width: 3vw;
-        height: 3vw;
+    .container-slider {
+        width: 80vw;
     }
 
-    .label-container {
-        margin-top: 1em;
-    }
-}
-
-@media (max-width: 600px) {
-    .label {
-        width: 4.5vw;
-        height: 4.5vw;
+    .text-container {
+        width: 80%;
+        margin-top: 2em;
     }
 
-    .label span {
-        width: 3.5vw;
-        height: 3.5vw;
+    .slide-img {
+        width: 80vw;
     }
 
-}
-
-@media (max-width: 600px) {
-    .label {
-        width: 5vw;
-        height: 5vw;
-    }
-
-    .label span {
-        width: 4vw;
-        height: 4vw;
-    }
-
-    .slide-text {
-        font-size: clamp(0.8em, 1vw, 2em);
+    #radio1:checked ~ .container-slider .slide-block {
+        transform: translateX(0);
+        transition: all 0.5s ease-in-out;
     }
     
+    #radio2:checked ~ .container-slider .slide-block {
+        transform: translateX(-80vw);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    
+    #radio3:checked ~ .container-slider .slide-block{
+        transform: translateX(-160vw);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    #radio4:checked ~ .container-slider .slide-block{
+        transform: translateX(-230vw);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .label {
+        min-width: 1.1em;
+        min-height: 1.1em;
+        flex-shrink: 0;
+    }
+
+    .label span {
+        min-width: 0.7em;
+        min-height: 0.7em;
+        flex-shrink: 0;
+    }
 }
 
 @media (hover: none) {
