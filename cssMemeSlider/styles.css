@@ -1,0 +1,353 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(4, 7, 34);
+    display: grid;
+    grid-template-columns: 1fr 60vw 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    overflow: hidden;
+}
+
+.container-slider {
+    width: 60vw;
+    display: flex;
+    list-style-type: none;
+    overflow: hidden;
+    border-radius: 0.5vw;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+
+
+.slide-img {
+    width: 60vw;
+    border-radius: 0.5vw;
+}
+
+.slide {
+    list-style-type: none;
+}
+
+.label-box {
+    display: flex;
+}
+
+.slide-text1,
+.slide-text2,
+.slide-text3,
+.slide-text4 {
+    color: white;
+    padding-left: 1rem;
+    margin-top: 1em;
+    font-size: clamp(1em, 1vw, 2em);
+    flex-shrink: 0;
+    height: 1em;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+}
+
+.radio {
+    display: none;
+}
+
+.label span {
+    display: block;
+    width: 2vw;
+    height: 2vw;
+    background-color: aquamarine;
+    border-radius: 50%;
+}
+
+.label-container {
+    display: flex;
+    gap: 1em;
+    justify-content: end;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    align-self: flex-start;
+    margin-top: 0.1em;
+}
+
+
+.text-container {
+    width: 50%;
+    height: 3em;
+    overflow: hidden;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30vw;
+}
+
+#radio1:checked ~ .label-container .label .label-phone1{
+    background-color: transparent;
+    border: 0.2vw solid aquamarine;
+}
+
+#radio1:checked ~ .text-container .slide-text1 {
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio1:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(40vw - 70%));
+    transition: transform 0.5s ease-in-out;
+
+}
+
+#radio1:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-30vw - 30%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio1:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .label-container .label .label-phone2{
+    background-color: transparent;
+    border: 0.2vw solid aquamarine;
+}
+
+#radio2:checked ~ .text-container .slide-text1 {
+    transform: translateX(-40vw);
+    transition: all 0.5s ease-in-out;
+}
+
+
+#radio2:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-30vw - 40%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
+
+#radio3:checked ~ .label-container .label .label-phone3{
+    background-color: transparent;
+    border: 0.2vw solid aquamarine;
+}
+
+#radio3:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text1 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-30vw - 70%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .label-container .label .label-phone4{
+    background-color: transparent;
+    border: 0.2vw solid aquamarine;
+}
+
+#radio4:checked ~ .text-container .slide-text4 {
+    transform: translateX(calc(-90vw - 650%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text1 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text3 {
+    transform: translateX(calc(-90vw - 240%));
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .text-container .slide-text2 {
+    transform: translateX(calc(-60vw - 170%));
+    transition: transform 0.5s ease-in-out;
+}
+
+.label:hover span {
+    background-color: white;
+}
+
+#radio1:checked ~ .label-container .label:hover .label-phone1{
+    background-color: rgb(4, 7, 34);
+    border-color: white;
+}
+
+#radio2:checked ~ .label-container .label:hover .label-phone2{
+    background-color: rgb(4, 7, 34);
+    border-color: white;
+}
+
+#radio3:checked ~ .label-container .label:hover .label-phone3{
+    background-color: rgb(4, 7, 34);
+    border-color: white;
+}
+
+#radio4:checked ~ .label-container .label:hover .label-phone4{
+    background-color: rgb(4, 7, 34);
+    border-color: white;
+}
+
+.label-container .label .label-phone1:active,
+.label-container .label .label-phone2:active,
+.label-container .label .label-phone3:active,
+.label-container .label .label-phone4:active {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+#radio1:checked ~ .label-container .label .label-phone1:active,
+#radio2:checked ~ .label-container .label .label-phone2:active,
+#radio3:checked ~ .label-container .label .label-phone3:active,
+#radio4:checked ~ .label-container .label .label-phone4:active{
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+#radio1:checked ~ .container-slider .slide-block {
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .container-slider .slide-block {
+    transform: translateX(-60vw);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio2:checked ~ .slide-text2 {
+    transform: translateX(-60vw);
+    transition: transform 0.5s ease-in-out;
+}
+
+#radio3:checked ~ .container-slider .slide-block{
+    transform: translateX(-120vw);
+    transition: all 0.5s ease-in-out;
+}
+
+#radio4:checked ~ .container-slider .slide-block{
+    transform: translateX(-180vw);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+@media (max-width: 767px) {
+    .slide-text1,
+    .slide-text2,
+    .slide-text3,
+    .slide-text4 {
+        font-size: 0.8em;
+    }
+
+    .label-container {
+        margin-top: 0.8em;
+        justify-content: center;
+    }
+
+    .container {
+        grid-template-columns: 1fr 80vw 1fr;
+    }
+
+    .container-slider {
+        width: 80vw;
+    }
+
+    .text-container {
+        width: 80%;
+        margin-top: 2em;
+    }
+
+    .slide-img {
+        width: 80vw;
+    }
+
+    #radio1:checked ~ .container-slider .slide-block {
+        transform: translateX(0);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    #radio2:checked ~ .container-slider .slide-block {
+        transform: translateX(-80vw);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    
+    #radio3:checked ~ .container-slider .slide-block{
+        transform: translateX(-160vw);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    #radio4:checked ~ .container-slider .slide-block{
+        transform: translateX(-240vw);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .label {
+        min-width: 1.1em;
+        min-height: 1.1em;
+        flex-shrink: 0;
+    }
+
+    .label span {
+        min-width: 0.7em;
+        min-height: 0.7em;
+        flex-shrink: 0;
+    }
+}
+
+@media (hover: none) {
+    #radio1:checked ~ .label-container .label:hover .label-phone1{
+        background-color: rgb(4, 7, 34);
+        border-color: aquamarine;
+    }
+    
+    #radio2:checked ~ .label-container .label:hover .label-phone2{
+        background-color: rgb(4, 7, 34);
+        border-color: aquamarine;
+    }
+    
+    #radio3:checked ~ .label-container .label:hover .label-phone3{
+        background-color: rgb(4, 7, 34);
+        border-color: aquamarine;
+    }
+    
+    #radio4:checked ~ .label-container .label:hover .label-phone4{
+        background-color: rgb(4, 7, 34);
+        border-color: aquamarine;
+    }
+    
+}
+
